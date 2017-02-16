@@ -1,0 +1,36 @@
+.page-header
+  = link_to new_restaurant_path, class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Restaurant
+  %h1 Listing restaurants
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Name
+        %th Description
+        %th Address
+        %th Phone
+        %th Website
+        %th Latitude
+        %th Longitude
+        %th Category
+        %th
+        %th
+        %th
+
+    %tbody
+      - @restaurants.each do |restaurant|
+        %tr
+          %td= restaurant.name
+          %td= restaurant.description
+          %td= restaurant.address
+          %td= restaurant.phone
+          %td= restaurant.website
+          %td= restaurant.latitude
+          %td= restaurant.longitude
+          %td= restaurant.category
+          %td= link_to 'Show', restaurant
+          %td= link_to 'Edit', edit_restaurant_path(restaurant)
+          %td= link_to 'Destroy', restaurant, data: { confirm: 'Are you sure?' }, method: :delete

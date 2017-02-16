@@ -1,0 +1,65 @@
+@import "bootstrap-variables.scss";
+@import "bootstrap-sprockets.scss";
+@import "bootstrap.scss";
+
+body {
+  //padding-top: $navbar-height;
+  padding-top: 0;
+}
+
+.page-header {
+  a.btn {
+    float: right;
+  }
+
+  a.btn + a.btn {
+    margin-right: 8px;
+  }
+}
+
+input[type="radio"], input[type="checkbox"] {
+  width: initial;
+  height: initial;
+  margin-top: 7px;
+}
+
+.infobox{
+  background: rgba(34, 34, 34, 0.95);
+  color:white;
+  padding:50px 20px; 
+}
+
+.arrow-down {
+  width: 0; 
+  height: 0; 
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  
+  border-top: 20px solid rgba(34, 34, 34, 0.95);
+  margin: auto;
+}
+
+#map > div > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(4) {
+    background:url("/mexicoflag.jpg") no-repeat center center fixed!important;
+    background-color:transparent;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#map > div > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(2){
+  background:transparent!important;
+  box-shadow:none!important;
+}
+
+#map > div > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div, #map > div > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > div {background:rgba(34, 34, 34, 0.95)!important;}
+
+#map > div > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(1), #map > div > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(1) > div:nth-child(3){top:204px!important;display:none;}
+
+.gm-style-iw{top:40px!important;left:25px!important;}
+
+#map > div > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div > div:nth-child(3){
+    right: 35px!important;
+    top: 45px!important;
+}

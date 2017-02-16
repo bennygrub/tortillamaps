@@ -1,0 +1,12 @@
+.infobox
+  %h1
+    =restaurant.name
+  %p
+    =restaurant.description
+  .row
+    -restaurant.images.each do |image|
+      .col-xs-4{style: "max-height:200px;overflow:hidden;"}
+        %a.fancybox{:href => image}
+          .food-image{style:"background: url(#{image}) no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;height:200px;width:200px;"}
+    
+.arrow-down

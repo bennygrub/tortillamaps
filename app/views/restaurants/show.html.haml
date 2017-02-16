@@ -1,0 +1,33 @@
+.page-header
+  = link_to restaurants_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to edit_restaurant_path(@restaurant), class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    Edit
+  %h1 Show restaurant
+
+%dl.dl-horizontal
+  %dt Name:
+  %dd= @restaurant.name
+  %dt Description:
+  %dd= @restaurant.description
+  %dt Address:
+  %dd= @restaurant.address
+  %dt Phone:
+  %dd= @restaurant.phone
+  %dt Website:
+  %dd= @restaurant.website
+  %dt Latitude:
+  %dd= @restaurant.latitude
+  %dt Longitude:
+  %dd= @restaurant.longitude
+  %dt Category:
+  %dd= @restaurant.category
+  %dt Images:
+  .row
+    -@restaurant.images.each do |image|
+      .col-xs-4{style: "max-height:200px;overflow:hidden;"}
+        %a.fancybox{:href => image}
+          .food-image{style:"background: url(#{image}) no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;height:200px;width:200px;"}
+
