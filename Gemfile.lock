@@ -336,6 +336,7 @@ DEPENDENCIES
   devise
   fancybox2-rails
   fog
+  fog-aws
   geocoder
   gmaps4rails
   haml-rails
