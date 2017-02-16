@@ -5,9 +5,9 @@ class PagesController < ApplicationController
       marker.lat restaurant.latitude
       marker.lng restaurant.longitude
       marker.picture({
-        :url => "/chili.png",
-        :width   => 32,
-        :height  => 32
+        :url => "/chili-drop.png",
+        :width   => 65,
+        :height  => 65
       })
       marker.infowindow render_to_string(:partial => "/restaurants/infobox", :locals => { :restaurant => restaurant})
       marker.title restaurant.name

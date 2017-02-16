@@ -63,3 +63,14 @@ input[type="radio"], input[type="checkbox"] {
     right: 35px!important;
     top: 45px!important;
 }
+
+.btn-taco{
+  background: #f76420;
+  color:white;
+  text-transform:uppercase;
+  margin-top: 15px;
+  &:hover{
+    background: #dd591b;
+    color:white;
+  }
+}
