@@ -29,15 +29,12 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          = link_to "Tortilla Maps", "/", class: "navbar-brand"
+          = link_to "/", class: "navbar-brand", style: "padding:0px;" do
+            .pull-left=image_tag("/logo.png", style:"max-width:100px;")
+            .pull-left{style:"padding: 15px 10px 10px 10px;color:white;text-transform:uppercase;"} "Mexican Food in LA Mapped"
+            .clearfix
         #navbar.collapse.navbar-collapse
           %ul.nav.navbar-nav
-            %li
-              %a{href: "#about"} About
-            %li
-              %a{href: "#contact"} Contact
-            %li
-              =link_to "For Realz", new_user_session_path()
             -if current_user
               %li=link_to "Restaurants", restaurants_path()
     -unless current_page? root_path
