@@ -17,7 +17,7 @@
           .btn.btn-taco
             Show Me The Food >>
 
-        -restaurant.images.each do |image|
+        -restaurant.images.drop(1).each do |image|
           %a.fancybox{:href => image.url, rel: "group", style: "display:none;"}
     
 .arrow-down
