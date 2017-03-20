@@ -11,7 +11,7 @@ class PagesController < ApplicationController
       })
       marker.infowindow render_to_string(:partial => "/restaurants/infobox", :locals => { :restaurant => restaurant})
       marker.title restaurant.name
-      marker.json({ :id => restaurant.id, :name => restaurant.name })
+      marker.json({ :id => restaurant.id, :name => restaurant.name})
     end
   end
 
