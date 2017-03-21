@@ -167,6 +167,7 @@
           imageOne = result["images"][0]["url"]
           $(".restaurant-description").html(result["description"])
           $(".restaurant-address").html(result["address"])
+          $(".restaurant-images").html("Sorry fellow taco lovers, right now we do not have any food pics. Do you have any? Let us know at tacolovers@tortillamaps.com")
           for c in result["images"]
             console.log(c.url)
             $(".restaurant-images").append("<div class='col-xs-12 col-sm-6 restaurant-image'><a href="+c.url+" class='fancybox' rel='gallery'><img src="+c.url+" class='img-responsive'></div>")
