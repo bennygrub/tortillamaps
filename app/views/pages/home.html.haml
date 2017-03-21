@@ -1,6 +1,6 @@
 %div{:style => "width: 100%;"}
   #map{:style => "width: 100%; height: 100%;height:100vh;"}
-
+=render "restaurant_info"
 :coffeescript
   mapStyle = 
     [
@@ -155,4 +155,25 @@
           @serviceObject.setAnimation null
     
     Gmaps.selectMarker = (id) ->
-      console.log(id)
+      $.ajax
+        dataType: 'text'
+        url: '/pages/data.json'
+        type: 'GET'
+        data: restaurant:
+          id: id
+        success: (json) ->
+          result = $.parseJSON(json)
+          $(".restaurant-name").html(result["name"])
+          imageOne = result["images"][0]["url"]
+          $(".restaurant-description").html(result["description"])
+          $(".restaurant-address").html(result["address"])
+          for c in result["images"]
+            console.log(c.url)
+            $(".restaurant-images").append("<div class='col-xs-12 col-sm-6 restaurant-image'><a href="+c.url+" class='fancybox' rel='gallery'><img src="+c.url+" class='img-responsive'></div>")
+
+
+
+          $(".image-1").attr('href', result["images"][0]["url"])
+
+
+      $('#restaurantModal').modal('show')

@@ -3,21 +3,22 @@
     %span
       =image_tag("/cactus.png", style:"max-width:20px;position: relative;bottom: 7px;")
     =restaurant.name
-  %h3
-    =restaurant.description
-  %br
-  %h4
-    %span
-      =image_tag("/yellow-chili.png", style:"max-width:20px;position: relative;bottom: 5px;")
-    =restaurant.address
-  -if restaurant.images.count > 0
-    .row
-      .col-xs-12
-        %a.fancybox{:href => "#{restaurant.images.first}", :rel => "group"}
-          .btn.btn-taco
-            Show Me The Food >>
+  .hide
+    %h3
+      =restaurant.description
+    %br
+    %h4
+      %span
+        =image_tag("/yellow-chili.png", style:"max-width:20px;position: relative;bottom: 5px;")
+      =restaurant.address
+    -if restaurant.images.count > 0
+      .row
+        .col-xs-12
+          %a.fancybox{:href => "#{restaurant.images.first}", :rel => "group"}
+            .btn.btn-taco
+              Show Me The Food >>
 
-        -restaurant.images.drop(1).each do |image|
-          %a.fancybox{:href => image.url, rel: "group", style: "display:none;"}
+          -restaurant.images.drop(1).each do |image|
+            %a.fancybox{:href => image.url, rel: "group", style: "display:none;"}
     
 .arrow-down

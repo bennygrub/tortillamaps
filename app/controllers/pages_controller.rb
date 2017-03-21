@@ -20,4 +20,11 @@ class PagesController < ApplicationController
 
   def contact
   end
+
+  def data
+    restaurant = Restaurant.find(params[:restaurant][:id])
+    respond_to do |format|
+      format.json { render json: restaurant}# respond with the created JSON object
+    end
+  end
 end

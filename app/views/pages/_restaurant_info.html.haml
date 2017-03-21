@@ -1,0 +1,26 @@
+#restaurantModal.modal.fade{"aria-labelledby" => "restaurantModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-header
+        %button.close.trigger-click{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button", data: { event_name: 'Close Pop-up'}}
+          %span{"aria-hidden" => "true"} ×
+        #myModalLabel.modal-title
+          %h1.restaurant-name
+      .modal-body
+        %h3.restaurant-description
+        %br
+        %h4
+          %span
+            =image_tag("/yellow-chili.png", style:"max-width:20px;position: relative;bottom: 5px;")
+          %span.restaurant-address
+        .row
+          .restaurant-images
+
+
+
+          .col-xs-12
+            %a.fancybox.image-1{:href => "", :rel => "gallery"}
+              .btn.btn-taco
+                Show Me The Rest of The Food >>
+
+
