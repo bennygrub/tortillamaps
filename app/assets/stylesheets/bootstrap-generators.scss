@@ -96,6 +96,12 @@ input[type="radio"], input[type="checkbox"] {
     transform: translate3d(-500%, 0, 0);
 }
 
+.col-xs-12.col-sm-6.restaurant-image {
+  padding: 5px;
+  max-height: 150px;
+  overflow: hidden;
+}
+
 @media only screen and (max-width : 768px) {
   .modal-dialog {
     width: 70%;
