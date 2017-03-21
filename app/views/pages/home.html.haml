@@ -134,7 +134,7 @@
     Gmaps.store.markers = markers.map((m) ->
       marker = handler.addMarker(m, animation: google.maps.Animation.DROP)
       marker.serviceObject.set 'id', m.id
-      # You can add other attributes using set
+    
       google.maps.event.addListener marker.serviceObject, 'click', ->
         marker = this
         console.log 'Tite for this marker is:' + @title
@@ -142,15 +142,17 @@
         Gmaps.selectMarker(m.id)
       marker
     )
+
     handler.bounds.extendWith Gmaps.store.markers
     handler.fitMapToBounds()
-    
+
     Gmaps.bounceMarker = (id) ->
       $.each Gmaps.store.markers, ->
         if @serviceObject.id == id
           #@panTo()
-          @serviceObject.setAnimation google.maps.Animation.BOUNCE
+          @serviceObject.setAnimation 4
         else
           @serviceObject.setAnimation null
+    
     Gmaps.selectMarker = (id) ->
       console.log(id)
