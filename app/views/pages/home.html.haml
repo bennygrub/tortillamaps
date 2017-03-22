@@ -175,8 +175,8 @@
             $(".image-1").show()
             $(".image-1").attr('href', result["images"][0]["url"])
             $(".no-restaurant").hide()
+            $(".restaurant-images").html("")
             for c in result["images"]
-              $(".restaurant-images").html("")
               console.log(c.url)
               $(".restaurant-images").append("<div class='col-xs-12 col-sm-6 restaurant-image'><a href="+c.url+" class='fancybox' rel='gallery'><img src="+c.url+" class='img-responsive'></div>")
 
