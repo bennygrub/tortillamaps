@@ -81,6 +81,11 @@ input[type="radio"], input[type="checkbox"] {
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow-y: initial !important
+}
+.modal-body{
+  height: 80vh;
+  overflow-y: auto;
 }
 
 .modal-content {
