@@ -23,6 +23,13 @@ input[type="radio"], input[type="checkbox"] {
   margin-top: 7px;
 }
 
+.tagline{
+  padding: 15px 10px 10px 10px;
+  color:white;
+  text-transform:uppercase;
+  font-family: courier;
+}
+
 .infobox{
   background: rgba(34, 34, 34, 0.95);
   color:white;
@@ -120,9 +127,31 @@ input[type="radio"], input[type="checkbox"] {
 
 @media only screen and (max-width : 768px) {
   .modal-dialog {
-    width: 80%;
+    width: 70%;
     height: 100%;
     margin: 0;
     padding: 0;
+  }
+  .tagline{
+    padding: 15px 0 0 10px;
+  }
+}
+
+@media only screen and (max-width : 500px) {
+  .tagline{
+    padding: 15px 0 0 10px;
+    font-size:12px;
+  }
+  .modal-dialog {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width : 365px) {
+  .tagline{
+    display:none;
+  }
+  .modal-dialog {
+    width: 100%;
   }
 }
