@@ -164,17 +164,25 @@
         success: (json) ->
           result = $.parseJSON(json)
           $(".restaurant-name").html(result["name"])
-          imageOne = result["images"][0]["url"]
           $(".restaurant-description").html(result["description"])
           $(".restaurant-address").html(result["address"])
-          $(".restaurant-images").html("Sorry fellow taco lovers, right now we do not have any food pics. Do you have any? Let us know at tacolovers@tortillamaps.com")
-          for c in result["images"]
-            console.log(c.url)
-            $(".restaurant-images").append("<div class='col-xs-12 col-sm-6 restaurant-image'><a href="+c.url+" class='fancybox' rel='gallery'><img src="+c.url+" class='img-responsive'></div>")
+          console.log(result["images"].length)
+          if result["images"].length < 1
+            $(".restaurant-images").html("")
+            $(".no-restaurant").show()
+            $(".image-1").hide()
+          else
+            $(".image-1").show()
+            $(".image-1").attr('href', result["images"][0]["url"])
+            $(".no-restaurant").hide()
+            for c in result["images"]
+              $(".restaurant-images").html("")
+              console.log(c.url)
+              $(".restaurant-images").append("<div class='col-xs-12 col-sm-6 restaurant-image'><a href="+c.url+" class='fancybox' rel='gallery'><img src="+c.url+" class='img-responsive'></div>")
 
 
 
-          $(".image-1").attr('href', result["images"][0]["url"])
+
 
 
       $('#restaurantModal').modal('show')
