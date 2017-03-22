@@ -103,9 +103,20 @@ input[type="radio"], input[type="checkbox"] {
 
 .col-xs-12.col-sm-6.restaurant-image {
   padding: 5px;
-  max-height: 150px;
+  max-height: 350px;
   overflow: hidden;
+  .image-box{
+    height: 200px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+  }
+  
 }
+
+
 
 @media only screen and (max-width : 768px) {
   .modal-dialog {
