@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :set_restaurant, only: [:show, :edit, :update, :destroy, :publish]
 
   # GET /restaurants
   # GET /restaurants.json
@@ -59,6 +59,12 @@ class RestaurantsController < ApplicationController
       format.html { redirect_to restaurants_url, notice: 'Restaurant was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def publish
+    @restaurant.published = @restaurant.published ? false : true
+    @restaurant.save
+    redirect_to restaurants_path
   end
 
   private

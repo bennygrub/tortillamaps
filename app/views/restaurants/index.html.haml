@@ -16,6 +16,8 @@
         %th Latitude
         %th Longitude
         %th Category
+        %th Published?
+        %th
         %th
         %th
         %th
@@ -31,6 +33,11 @@
           %td= restaurant.latitude
           %td= restaurant.longitude
           %td= restaurant.category
+          %td= restaurant.published
+          -if restaurant.published
+            %td= link_to 'unPublish', publish_restaurant_path(restaurant)
+          -else
+            %td= link_to 'Publish', publish_restaurant_path(restaurant)
           %td= link_to 'Show', restaurant
           %td= link_to 'Edit', edit_restaurant_path(restaurant)
           %td= link_to 'Destroy', restaurant, data: { confirm: 'Are you sure?' }, method: :delete

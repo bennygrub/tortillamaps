@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   def home
-    @users = Restaurant.all
-    @hash = Gmaps4rails.build_markers(@users) do |restaurant, marker|
+    @restaurants = Restaurant.where(published: true)
+    @hash = Gmaps4rails.build_markers(@restaurants) do |restaurant, marker|
       marker.lat restaurant.latitude
       marker.lng restaurant.longitude
       marker.picture({
