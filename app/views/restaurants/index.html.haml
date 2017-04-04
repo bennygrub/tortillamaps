@@ -18,7 +18,7 @@
         %th{"data-sortable" => "true"} Website
         %th{"data-sortable" => "true"} Latitude
         %th{"data-sortable" => "true"} Longitude
-        %th{"data-sortable" => "true"} Category
+        %th{"data-sortable" => "true"} Google Link
         %th{"data-sortable" => "true"} Hours
         %th{"data-sortable" => "true"} Published?
         %th
@@ -36,7 +36,8 @@
           %td= restaurant.website
           %td= restaurant.latitude
           %td= restaurant.longitude
-          %td= restaurant.category
+          %td
+            = link_to "Find on Google", "https://www.google.com/search?q=#{restaurant.name}+Mexican+Restaurant+Los+Angeles&oq=Tortilla+Republic+Weho+Mexican+Restaurant+Los+Angeles", target: "blank"
           %td= restaurant.hours
           %td= restaurant.published
           -if restaurant.published
