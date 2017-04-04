@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require fancybox
 //= require bootstrap
+//= require bootstrap-table
 //= require gmaps/google
 //= require underscore
 //= require_tree .

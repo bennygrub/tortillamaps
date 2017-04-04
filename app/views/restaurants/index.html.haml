@@ -1,22 +1,26 @@
-.page-header
+.page-header{style:"margin-top:80px;"}
+  .form-group
+    %input.search.form-control{:placeholder => "Type to Search. It works across all columns", :type => "text"}/
+
   = link_to new_restaurant_path, class: 'btn btn-primary' do
     %span.glyphicon.glyphicon-plus
     New Restaurant
   %h1 Listing restaurants
 
 .table-responsive
-  %table.table.table-striped.table-bordered.table-hover
+  %table.results.table-hover.table-bordered.table{"data-toggle" => "table"}
     %thead
       %tr
-        %th Name
-        %th Description
-        %th Address
-        %th Phone
-        %th Website
-        %th Latitude
-        %th Longitude
-        %th Category
-        %th Published?
+        %th{"data-sortable" => "true"} Name
+        %th{"data-sortable" => "true"} Description
+        %th{"data-sortable" => "true"} Address
+        %th{"data-sortable" => "true"} Phone
+        %th{"data-sortable" => "true"} Website
+        %th{"data-sortable" => "true"} Latitude
+        %th{"data-sortable" => "true"} Longitude
+        %th{"data-sortable" => "true"} Category
+        %th{"data-sortable" => "true"} Hours
+        %th{"data-sortable" => "true"} Published?
         %th
         %th
         %th
@@ -33,6 +37,7 @@
           %td= restaurant.latitude
           %td= restaurant.longitude
           %td= restaurant.category
+          %td= restaurant.hours
           %td= restaurant.published
           -if restaurant.published
             %td= link_to 'unPublish', publish_restaurant_path(restaurant)
@@ -41,3 +46,29 @@
           %td= link_to 'Show', restaurant
           %td= link_to 'Edit', edit_restaurant_path(restaurant)
           %td= link_to 'Destroy', restaurant, data: { confirm: 'Are you sure?' }, method: :delete
+:javascript
+  $(document).ready(function() {
+    $(".search").keyup(function () {
+      var searchTerm = $(".search").val();
+      var listItem = $('.results tbody').children('tr');
+      var searchSplit = searchTerm.replace(/ /g, "'):containsi('")
+      
+    $.extend($.expr[':'], {'containsi': function(elem, i, match, array){
+          return (elem.textContent || elem.innerText || '').toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+      }
+    });
+      
+    $(".results tbody tr").not(":containsi('" + searchSplit + "')").each(function(e){
+      $(this).hide();
+    });
+
+    $(".results tbody tr:containsi('" + searchSplit + "')").each(function(e){
+      $(this).show();
+    });
+
+    var jobCount = $('.results tbody tr[visible="true"]').length;
+
+    if(jobCount == '0') {$('.no-result').show();}
+      else {$('.no-result').hide();}
+    });
+  });

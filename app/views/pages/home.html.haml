@@ -164,9 +164,11 @@
         success: (json) ->
           result = $.parseJSON(json)
           $(".restaurant-name").html(result["name"])
-          $(".restaurant-description").html(result["description"])
+          if result["description"] != null
+            $(".restaurant-description").html("<h3>"+result["description"]+"</h3><br>")
           $(".restaurant-address").html(result["address"])
-          console.log(result["images"].length)
+          if result["hours"] != null
+            $(".restaurant-hours").html("<hr>"+result["hours"]+"<hr>")
           if result["images"].length < 1
             $(".restaurant-images").html("")
             $(".no-restaurant").show()

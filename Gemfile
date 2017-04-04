@@ -47,6 +47,9 @@ group :development do
 
   #quirks
   gem 'rb-readline'
+
+  #testing
+  gem "pry"
 end
 
 gem 'bootstrap-generators', '~> 3.3.4'
@@ -59,3 +62,4 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'fog'
 #gem 'fog-aws'
 gem 'fancybox2-rails'
+gem "bootstrap-table-rails"
