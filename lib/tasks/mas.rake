@@ -7,6 +7,7 @@ task mas_restaurants: :environment do
     query = ENV['query'].gsub(" ","+")
     url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=#{query}&radius=20&key=AIzaSyDzYPWSWVUkOfCrwFy7CFov4rzEKa93mo0"
   else
+    query = "nada"
     puts "you need to add a query like this query='blah'"
     exit
   end
@@ -41,4 +42,4 @@ task mas_restaurants: :environment do
     
   end
 end
-puts "Finished adding restaurants for the query = #{query}"
+puts "Finished adding restaurants"

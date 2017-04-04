@@ -63,4 +63,3 @@ gem 'fog'
 #gem 'fog-aws'
 gem 'fancybox2-rails'
 gem "bootstrap-table-rails"
-gem 'net-ssh'
