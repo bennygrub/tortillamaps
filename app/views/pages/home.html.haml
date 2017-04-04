@@ -166,9 +166,13 @@
           $(".restaurant-name").html(result["name"])
           if result["description"] != null
             $(".restaurant-description").html("<h3>"+result["description"]+"</h3><br>")
+          else
+            $(".restaurant-description").html(" ")
           $(".restaurant-address").html(result["address"])
           if result["hours"] != null
             $(".restaurant-hours").html("<hr>"+result["hours"]+"<hr>")
+          else
+            $(".restaurant-hours").html(" ")
           if result["images"].length < 1
             $(".restaurant-images").html("")
             $(".no-restaurant").show()
