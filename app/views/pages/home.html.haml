@@ -4,12 +4,12 @@
 :coffeescript
   
   middle =
-    if $("#mappy").data("lat").length > 0 
+    if $("#mappy").data("lat").length < 1 || $("#mappy").data("lat") == "0.0"
+      new google.maps.LatLng(34.052235, -118.243683)
+    else
       lat = parseFloat($("#mappy").data("lat"))
       long = parseFloat($("#mappy").data("long"))
       new google.maps.LatLng(lat, long)
-    else
-      new google.maps.LatLng(34.052235, -118.243683)
 
   mapStyle = 
     [
@@ -134,7 +134,7 @@
     ]
   handler = Gmaps.build('Google')
   handler.buildMap {
-    provider: {styles:mapStyle, center: middle}
+    provider: {styles:mapStyle, center: middle, zoom: 14}
     internal: id: 'map'
     markers: { clusterer: null}
   }, ->
