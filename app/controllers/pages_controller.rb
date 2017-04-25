@@ -13,6 +13,7 @@ class PagesController < ApplicationController
       marker.title restaurant.name
       marker.json({ :id => restaurant.id, :name => restaurant.name})
     end
+    @location = request.location
   end
 
   def about

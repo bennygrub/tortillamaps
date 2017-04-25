@@ -1,7 +1,16 @@
-%div{:style => "width: 100%;"}
+#mappy{:style => "width: 100%;", :data => {:lat => "#{@location.latitude}", long: "#{@location.longitude}"}}
   #map{:style => "width: 100%; height: 100%;height:100vh;"}
 =render "restaurant_info"
 :coffeescript
+  
+  middle =
+    if $("#mappy").data("lat").length > 0 
+      lat = parseFloat($("#mappy").data("lat"))
+      long = parseFloat($("#mappy").data("long"))
+      new google.maps.LatLng(lat, long)
+    else
+      new google.maps.LatLng(34.052235, -118.243683)
+
   mapStyle = 
     [
       {
@@ -125,7 +134,7 @@
     ]
   handler = Gmaps.build('Google')
   handler.buildMap {
-    provider: {styles:mapStyle}
+    provider: {styles:mapStyle, center: middle}
     internal: id: 'map'
     markers: { clusterer: null}
   }, ->
@@ -143,8 +152,8 @@
       marker
     )
 
-    handler.bounds.extendWith Gmaps.store.markers
-    handler.fitMapToBounds()
+    #handler.bounds.extendWith Gmaps.store.markers
+    #handler.fitMapToBounds()
 
     Gmaps.bounceMarker = (id) ->
       $.each Gmaps.store.markers, ->
