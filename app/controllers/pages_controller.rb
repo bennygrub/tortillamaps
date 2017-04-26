@@ -15,7 +15,7 @@ class PagesController < ApplicationController
     end
     if request.location.ip == '::1'
       @location = request.safe_location
-      rest_count = Restaurant.near([34.0900310, -118.3688430], 0.1, :units => :km).map{|a| a}.count
+      rest_count = Restaurant.near([34.0900310, -118.3688430], 0.5, :units => :km).map{|a| a}.count
     else
       @location = request.safe_location
       rest_count = Restaurant.near([@location.latitude, @location.longitude], 1, :units => :km).map{|a| a}.count
