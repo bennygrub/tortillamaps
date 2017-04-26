@@ -1,11 +1,10 @@
-#mappy{:style => "width: 100%;", :data => {:lat => "#{@location.latitude}", long: "#{@location.longitude}"}}
+#mappy{:style => "width: 100%;", :data => {:lat => "#{@location.latitude}", long: "#{@location.longitude}", near:"#{@near_me}"}}
   #map{:style => "width: 100%; height: 100%;height:100vh;"}
 =render "restaurant_info"
 :coffeescript
-  
   middle =
     if $("#mappy").data("lat").length < 1 || $("#mappy").data("lat") == "0.0"
-      new google.maps.LatLng(34.052235, -118.243683)
+      new google.maps.LatLng(34.0900310, -118.3688430)
     else
       lat = parseFloat($("#mappy").data("lat"))
       long = parseFloat($("#mappy").data("long"))
@@ -151,9 +150,9 @@
         Gmaps.selectMarker(m.id)
       marker
     )
-
-    #handler.bounds.extendWith Gmaps.store.markers
-    #handler.fitMapToBounds()
+    if $("#mappy").data("near").length < 1
+      handler.bounds.extendWith Gmaps.store.markers
+      handler.fitMapToBounds()
 
     Gmaps.bounceMarker = (id) ->
       $.each Gmaps.store.markers, ->
